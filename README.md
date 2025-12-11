@@ -3,7 +3,7 @@ Sujet de M. Hébert  - Mnémosyne
 
 > **"Garder la mémoire, éclairer les parcours."**
 
-![Logo Mnémosyne](path/to/logo.png)
+![Logo Mnémosyne](img/logo.png)
 
 ## 📄 Contexte
 
