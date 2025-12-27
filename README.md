@@ -39,7 +39,7 @@ Réservé à la gestion des données et des règles métier.
 * **Base de Données :** SQLite3.
 * **Source de données :** API [ScoDoc 9](https://scodoc.org/ScoDoc9API/).
 
-> **Note sur la confidentialité :** L'accès à l'API de production de l'IUT est restreint. L'environnement de développement utilise des jeux de "fausses" données au format JSON pour simuler les réponses de l'API tout en respectant le RGPD.
+> **Note sur la confidentialité :** L'accès à l'API de production de l'IUT est restreint. L'environnement de développement utilise des jeux de données anonymisé au format JSON pour simuler les réponses de l'API tout en respectant le RGPD.
 
 ## 📊 Terminologie et codes (ScoDoc)
 
