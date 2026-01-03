@@ -410,9 +410,25 @@ def inscription(cursor, dossier_json):
 
 
 
-DB_FILE = 'scolarite.db'
-DOSSIER_JSON = 'SAE_json'
-# éxécution 
+# CONFIGURATION DES CHEMINS
+
+# on récupère le dossier où se trouve le script 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# on remonte d'un cran pour avoir la racine du projet
+PROJECT_ROOT = os.path.dirname(BASE_DIR)
+
+# on définit les chemins absolus
+DB_FILE = os.path.join(PROJECT_ROOT, 'instance', 'scolarite.db')
+DOSSIER_JSON = os.path.join(PROJECT_ROOT, 'data', 'json')
+
+# vérif
+print(f"Base de données : {DB_FILE}")
+print(f"Dossier JSON    : {DOSSIER_JSON}")
+
+
+
+# EXECUTION
 try:
     # on charge la bd avant la connexion pour éviter de se connecter pour rien
     with open('SAE_json/departements.json', 'r', encoding='utf-8') as f:
