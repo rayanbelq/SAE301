@@ -1,14 +1,20 @@
 import sqlite3
 import os
 
-def create_database(db_name="scolarite.db"):
-    # supprimer l'ancien fichier s'il existe pour repartir de zéro, comment ça facilite la vie wow
-    if os.path.exists(db_name):
-        os.remove(db_name)
+def create_database():
+    # CONFIGURATION DU CHEMIN
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    INSTANCE_DIR = os.path.join(BASE_DIR, 'instance')
+    DB_PATH = os.path.join(INSTANCE_DIR, 'scolarite.db')
+
+    # supprimer l'ancienne base pour repartir de zéro
+    if os.path.exists(DB_PATH):
+        os.remove(DB_PATH)
+        print(f"Ancienne base supprimée : {DB_PATH}")
 
     try:
         # connexion à la base de données (elle sera créée si elle n'existe pas)
-        conn = sqlite3.connect(db_name)
+        conn = sqlite3.connect(DB_PATH)
         cursor = conn.cursor()
         
         # activer le support des clés étrangères

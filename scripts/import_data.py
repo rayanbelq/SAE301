@@ -431,10 +431,10 @@ print(f"Dossier JSON    : {DOSSIER_JSON}")
 # EXECUTION
 try:
     # on charge la bd avant la connexion pour éviter de se connecter pour rien
-    with open('SAE_json/departements.json', 'r', encoding='utf-8') as f:
+    with open(os.path.join(DOSSIER_JSON, 'departements.json'), 'r', encoding='utf-8') as f:
         departements_json = json.load(f)
 
-    with open('SAE_json/formations.json', 'r', encoding='utf-8') as f:
+    with open(os.path.join(DOSSIER_JSON, 'formations.json'), 'r', encoding='utf-8') as f:
         formation_json = json.load(f)
 
     # with gère l'ouverture ET la fermeture automatiquement
