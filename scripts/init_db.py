@@ -2,23 +2,20 @@ import sqlite3
 import os
 
 def create_database(db_name="scolarite.db"):
-    # Supprimer l'ancien fichier s'il existe pour repartir de zéro (optionnel)
+    # supprimer l'ancien fichier s'il existe pour repartir de zéro, comment ça facilite la vie wow
     if os.path.exists(db_name):
         os.remove(db_name)
-        print(f"Ancienne base '{db_name}' supprimée.")
 
     try:
-        # Connexion à la base de données (elle sera créée si elle n'existe pas)
+        # connexion à la base de données (elle sera créée si elle n'existe pas)
         conn = sqlite3.connect(db_name)
         cursor = conn.cursor()
         
-        # Activer le support des clés étrangères
+        # activer le support des clés étrangères
         cursor.execute("PRAGMA foreign_keys = ON;")
 
-        print("Création des tables en cours...")
 
-        # --- 1. Tables indépendantes (sans clés étrangères) ---
-        
+        # tables indépendantes (sans clés étrangères)
         cursor.execute("""
         CREATE TABLE decision(
             id_decision INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -58,7 +55,7 @@ def create_database(db_name="scolarite.db"):
         );
         """)
 
-        # --- 2. Tables dépendantes (Niveau 1) ---
+        # tables dépendantes
 
         cursor.execute("""
         CREATE TABLE formation(
@@ -73,8 +70,6 @@ def create_database(db_name="scolarite.db"):
             UNIQUE(annee_but, id_departement, id_rythme)
         );
         """)
-
-        # --- 3. Tables dépendantes (Niveau 2) ---
 
         cursor.execute("""
         CREATE TABLE parcours(
@@ -112,8 +107,6 @@ def create_database(db_name="scolarite.db"):
         );
         """)
 
-        # --- 4. Tables dépendantes (Niveau 3) ---
-
         cursor.execute("""
         CREATE TABLE evaluer(
             id_inscription INTEGER,
@@ -127,11 +120,10 @@ def create_database(db_name="scolarite.db"):
         );
         """)
 
-        # Valider les changements
+        # on valide
         conn.commit()
-        print("Toutes les tables ont été créées avec succès !")
         
-        # Vérification rapide : lister les tables
+        # vérif rapide : lister les tables
         cursor.execute("SELECT name FROM sqlite_master WHERE type='table';")
         tables = cursor.fetchall()
         print("\nListe des tables dans la base :")
