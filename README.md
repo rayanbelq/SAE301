@@ -60,12 +60,12 @@ en cours...
 ## 👥 Auteurs et Contributions
 
 Projet réalisé dans le cadre de l'IUT de Villetaneuse.
-@Solene0971    Solène BOURG   
-@notyass       Yacine RABOUDI
-@faizand9      Faizan ISHAQ
-@rayanbelq     Rayan BELQASMI
-@
-@
+| Membre | GitHub |
+| :--- | :--- |
+| **Solène BOURG** | [@Solene0971](https://github.com/Solene0971) |
+| **Yacine RABOUDI** | [@notyass](https://github.com/notyass) |
+| **Faizan ISHAQ** | [@faizand9](https://github.com/faizand9) |
+| **Rayan BELQASMI** | [@rayanbelq](https://github.com/rayanbelq) |
 
 ---
 *Mnémosyne est, dans la mythologie grecque, la déesse de la mémoire et mère des Muses.*
