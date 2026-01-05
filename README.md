@@ -60,7 +60,12 @@ en cours...
 ## 👥 Auteurs et Contributions
 
 Projet réalisé dans le cadre de l'IUT de Villetaneuse.
-(mettre les @ de tout le monde)
+@Solene0971    Solène BOURG   
+@notyass       Yacine RABOUDI
+@faizand9      Faizan ISHAQ
+@rayanbelq     Rayan BELQASMI
+@
+@
 
 ---
 *Mnémosyne est, dans la mythologie grecque, la déesse de la mémoire et mère des Muses.*
