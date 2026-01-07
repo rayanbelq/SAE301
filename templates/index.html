@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Suivi SAE</title>
+</head>
+<body>
+
+    <h1>Suivi de Cohorte</h1>
+
+    <form method="POST">
+        <label>Département :</label>
+        <select name="departement">
+            <option value="TOUS" {% if sel_dept == 'TOUS' %}selected{% endif %}>TOUS</option>
+            {% for d in depts %}
+                <option value="{{ d }}" {% if sel_dept == d %}selected{% endif %}>{{ d }}</option>
+            {% endfor %}
+        </select>
+
+        <label>Année de début :</label>
+        <select name="annee">
+            <option value="2021" {% if sel_year == '2021' %}selected{% endif %}>2021</option>
+            <option value="2022" {% if sel_year == '2022' %}selected{% endif %}>2022</option>
+            <option value="2023" {% if sel_year == '2023' %}selected{% endif %}>2023</option>
+            <option value="2024" {% if sel_year == '2024' %}selected{% endif %}>2024</option>
+        </select>
+
+        <label>Statut :</label>
+        <select name="rythme">
+            <option value="TOUS" {% if sel_rythme == 'TOUS' %}selected{% endif %}>Tous</option>
+            <option value="FI" {% if sel_rythme == 'FI' %}selected{% endif %}>Formation Initiale (FI)</option>
+            <option value="FA" {% if sel_rythme == 'FA' %}selected{% endif %}>Alternance (FA)</option>
+        </select>
+
+        <button type="submit">Rechercher</button>
+    </form>
+
+    <hr>
+
+    {% if results %}
+        <table border="1" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th>Département</th>
+                    <th>Année Univ</th>
+                    <th>Niveau</th>
+                    <th>Statut</th> <th>Résultat</th>
+                    <th>INE</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row['dept'] }}</td>
+                    <td>{{ row['annee_universitaire'] }}</td>
+                    <td>BUT {{ row['annee_but'] }}</td>
+                    <td>{{ row['rythme'] }}</td> <td>{{ row['resultat'] }}</td>
+                    <td>{{ row['ine'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p>{{ results|length }} étudiants trouvés.</p>
+    {% elif sel_year %}
+        <p>Aucun résultat trouvé.</p>
+    {% endif %}
+
+</body>
+</html>
