@@ -7,6 +7,11 @@ def create_database():
     INSTANCE_DIR = os.path.join(BASE_DIR, 'instance')
     DB_PATH = os.path.join(INSTANCE_DIR, 'scolarite.db')
 
+    # si le dossier 'instance' n'existe pas, on le crée
+    if not os.path.exists(INSTANCE_DIR):
+        os.makedirs(INSTANCE_DIR)
+        print(f"Dossier créé : {INSTANCE_DIR}")
+
     # supprimer l'ancienne base pour repartir de zéro
     if os.path.exists(DB_PATH):
         os.remove(DB_PATH)
