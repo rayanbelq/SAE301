@@ -264,6 +264,13 @@ def inscription(cursor, dossier_json):
         annee_match = re.search(r'(\d{4})', nom_fichier) 
         annee_fichier = int(annee_match.group(1)) if annee_match else None
 
+        nom_lower = nom_fichier.lower()
+        mots_cles_alternance = ['fa', 'apprentissage', 'alternance', 'apprenti', 'alt', 'app']
+        if any(mot in nom_lower for mot in mots_cles_alternance):
+            id_rythme_fichier = 2 # alternant
+        else:
+            id_rythme_fichier = 1 # initiale
+
         try:
             with open(fichier, 'r', encoding='utf-8') as f:
                 contenu = json.load(f)
@@ -344,11 +351,8 @@ def inscription(cursor, dossier_json):
             if not id_decision: 
                 continue #décision inconnu mais normalement tte est bon
 
-            # identification de formation :'(
-            id_rythme = 1 # fi par défaut
-            parcours_txt = str(etu.get('parcours', '')).lower()
-            if any(x in parcours_txt for x in ['app', 'alt', 'fa']):
-                id_rythme = 2 # fa 
+            # on applique le rythme trouvé grâce au nom du fichier
+            id_rythme = id_rythme_fichier
 
             # son année d'étude
             niveau = 1 # BUT1 par défaut
