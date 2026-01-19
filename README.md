@@ -67,6 +67,7 @@ Projet réalisé dans le cadre de l'IUT de Villetaneuse.
 | **Faizan ISHAQ** | [@faizand9](https://github.com/faizand9) |
 | **Rayan BELQASMI** | [@rayanbelq](https://github.com/rayanbelq) |
 | **Wissam MERIEM** | [@wissammeriem](https://github.com/wissammeriem) |
+| **Christophe LIN HUANG** | [@XingkOng1504](https://github.com/XingkOng1504) |
 
 ---
 *Mnémosyne est, dans la mythologie grecque, la déesse de la mémoire et mère des Muses.*
